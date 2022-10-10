@@ -16,18 +16,34 @@
 
 </head>
 
-<body>
+<body class="body">
+
     <div class="container">
-        <p class="taskList">Lista zadań</p>
+
+        <div class="container__item">
+            <p class="taskList__header">Lista zadań</p>
+        </div>
+
         <form class="form js-form">
+
             <legend class="form__legend">Dodaj nowe zadanie</legend>
+
             <fieldset class="form__fieldset">
-            <input class="form__field js-newTask" autofocus placeholder="Twoje nowe zadanie to... ">
-            <button class="form__button">Dodaj zadanie</button>
-        </fieldset>
+
+                <input class="form__field js-newTask" maxlength="500" autofocus placeholder="Twoje nowe zadanie to... ">
+
+                <button class="form__button">Dodaj zadanie</button>
+
+            </fieldset>
+
         </form>
+
         <ul class="list js-tasks"></ul>
+
+       
+
     </div>
+    <footer class="footer">All rights reserved by Jakub Janaszczak @ 2022</footer>
 </body>
 
 </html>

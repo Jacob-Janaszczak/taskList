@@ -2,11 +2,11 @@
 
     const tasks = [
         {
-            content: "nagrać lekcje",
+            content: "Zadanie  do wykonania",
             done: false,
         },
         {
-            content: "zjeść obiad",
+            content: "Zadanie  wykonane",
             done: true,
         },
     ];
@@ -50,12 +50,11 @@
 
         for (const task of tasks) {
             htmlString += `
-            <li 
-            class="list__item${task.done ? " list__item--done" : ""}"
-            >
-            <button class="js-done">zrobione</button>
-            <button class="js-remove">usuń</button>
-            ${task.content}
+            <li  class="list__item">
+            <button class="button__done js-done">${task.done ? "✔" : "" }</button> 
+            <span class="list__content${task.done ? " list__item--done" : ""}">${task.content}</span>
+            <button class="button__remove js-remove">🗑</button>
+           
             </li>
             `;
         }

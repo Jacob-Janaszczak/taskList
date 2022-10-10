@@ -1,5 +1,15 @@
 .container {
+    min-height: 100%;
+    position: relative;
     display: grid;
-    grid-template-rows:  repeat(1, 1fr);
-    background-color: rgba(24, 23, 23, 0.103);
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 150px 1fr 50px;
+    grid-template-areas:
+        "header"
+        "form"
+        "list"
+        "footer"
+    ;
+    border: 2px solid black;
+    padding-bottom: 15px;
 }
