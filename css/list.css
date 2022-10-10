@@ -1,6 +1,6 @@
 .list {
     list-style-type: none;
-    margin: 10px auto;
+    margin: 0px auto 10px;
     padding: 30px;
     background-color: white;
     width: 700px;
@@ -14,6 +14,7 @@
     display: grid;
     grid-template-columns: 30px minmax(auto, 485px) 30px;
     grid-gap: 20px 20px;
+    align-items: center;
 
 
 }
@@ -21,6 +22,7 @@
 
 .list__item--done {
     text-decoration: line-through;
+    color: rgba(23, 221, 162, 0.432);
 
 }
 
@@ -55,13 +57,16 @@
 
 .button__done {
     padding: 3px;
-    background-color: rgb(6, 248, 18);
+    background-color: rgb(27 209 88 / 80%);
+    padding: 5px;
     font-size: 15px;
     font-weight: 900;
     color: rgb(10, 10, 10);
     border: 0;
     height: 30px;
     width: 50px;
+    cursor: pointer;
+   
 }
 
 .button__done:hover {

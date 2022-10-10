@@ -43,4 +43,14 @@
     font-size: 15px;
     font-weight: 800;
     height: 30px;
+    cursor: pointer;
+}
+.form__button:hover {
+    transform: scale(1.1);
+
+}
+
+.form__button:active {
+   
+    transform: scale(1.3);
 }

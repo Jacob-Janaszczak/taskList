@@ -3,13 +3,13 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 100px 150px 1fr 50px;
+    grid-template-rows: 100px 150px 50px repeat(1fr);
     grid-template-areas:
         "header"
         "form"
         "list"
         "footer"
     ;
-    border: 2px solid black;
+    border: 4px solid black;
     padding-bottom: 15px;
 }
