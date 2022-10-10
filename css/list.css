@@ -1,4 +1,20 @@
+.list__item {
+border-bottom: 2px solid rgb(23, 221, 162);
+padding: 10px;
+margin: 10px;
+
+}
+
 
 .list__item--done {
     text-decoration: line-through;
+}
+
+.list {
+    list-style-type: none;
+    margin: 10px auto;
+    padding: 30px ;
+    background-color: white;
+    width: 700px;
+    box-shadow: 1px 5px 15px -2px
 }

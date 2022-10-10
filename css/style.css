@@ -1,0 +1,13 @@
+html {
+    box-sizing: border-box;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+}
+
+.taskList {
+    font-size: 30px;
+    font-weight: 800;
+    margin: 25px auto 1px;
+}
