@@ -30,9 +30,15 @@ html {
     bottom: 0;
     width: 100%;
     max-height: 35px;
-    
-
 }
+
+@media (max-width: 680px) {
+    .footer {
+        max-height: 50px;
+    }
+    }
+  
+
 .container__item {
     display: grid;
     grid-gap: 20px 20px;
@@ -50,7 +56,14 @@ html {
     width: 700px;
     box-shadow: 1px 5px 15px -2px;
     border-bottom: 1px solid rgb(23, 221, 162);
-   
-    
-    
+}
+@media (max-width: 680px) {
+    .list__head--title  {
+       max-width: 400px;
+    }
+  }
+  @media (max-width: 450px) {
+    .list__head--title  {
+        max-width: 300px;
+    }
 }

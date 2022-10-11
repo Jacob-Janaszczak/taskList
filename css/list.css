@@ -6,6 +6,17 @@
     width: 700px;
     box-shadow: 1px 5px 15px -2px
 }
+@media (max-width: 680px) {
+    .list {
+       max-width: 400px;
+    }
+  }
+  @media (max-width: 450px) {
+    .list {
+      width: 300px;
+    }
+  }
+
 
 .list__item {
     border-bottom: 2px solid rgb(23, 221, 162);
