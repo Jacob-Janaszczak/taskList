@@ -88,4 +88,13 @@
         text-align: center;
        
     }
+    .form__button:hover {
+        transform: scale(1);
+    
+    }
+    
+    .form__button:active {
+    
+        transform: scale(1);
+    }
 }
