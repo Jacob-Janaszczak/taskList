@@ -56,6 +56,7 @@
         bindEvents();
     };
 
+   
 
 
     const onFormSubmit = (event) => {
@@ -63,15 +64,25 @@
         event.preventDefault();
 
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
-
+        
+       
 
         if (newTaskContent === "") {
             return;
         }
 
         addNewTask(newTaskContent);
+        
 
     };
+
+    const clear = (event) => {
+        event.preventDefault();
+        const clearTask = document.querySelector(".js-newTask");
+        clearTask.focus();
+        clearTask.value = "";
+      
+    }
 
     const init = () => {
 
@@ -79,7 +90,9 @@
 
         const form = document.querySelector(".js-form");
 
-        form.addEventListener("submit", onFormSubmit);
+        form.addEventListener("submit",onFormSubmit);
+        form.addEventListener("submit",clear);
+        
     };
 
     init();
