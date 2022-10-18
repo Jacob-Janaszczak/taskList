@@ -2,7 +2,10 @@
     const hidenbutton = document.querySelector(".button_deleteAll");
     hidenbutton.style.display = 'none';
 
-    const tasks = [];
+    const tasks = [
+
+
+    ];
 
     const addNewTask = (newTaskContent) => {
         tasks.push({
@@ -57,17 +60,28 @@
 
     };
 
-    /* const removeAllDone = () => {
-         console.log("coś nie działa");
-         
-         if (tasks.includes("done"))
-         {
-             removeTask();
-         };
- 
-     };
- 
- */
+    const removeAllDone = () => {
+        console.log(tasks);
+
+
+
+        const allTasks = tasks.length;
+
+        tasks.forEach((task, taskIndex) => {
+            console.log(`${task.done}${task}`);
+            tasks.splice(taskIndex, allTasks);
+
+
+        });
+        render();
+        hidenbutton.style.display = 'none';
+
+
+
+
+
+    };
+
 
     const onFormSubmit = (event) => {
 
@@ -88,13 +102,13 @@
 
     const showbuttons = (event, newTaskContent) => {
         event.preventDefault();
-        const emptytask= document.querySelector(".js-newTask").value.trim();
-        
+        const emptytask = document.querySelector(".js-newTask").value.trim();
+
         if (emptytask === "") {
             return;
         }
         hidenbutton.style.display = 'inline';
-        
+
     };
 
     const clear = (event) => {
@@ -114,8 +128,8 @@
         form.addEventListener("submit", onFormSubmit);
         form.addEventListener("submit", showbuttons);
         form.addEventListener("submit", clear);
-        
-        /* hidenbutton.addEventListener("click", removeAllDone); */
+
+        hidenbutton.addEventListener("click", removeAllDone);
 
     };
 
