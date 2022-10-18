@@ -1,4 +1,6 @@
 {
+    const hidenbutton = document.querySelector(".button_deleteAll");
+    hidenbutton.style.display = 'none';
 
     const tasks = [];
 
@@ -42,7 +44,7 @@
         for (const task of tasks) {
             htmlString += `
             <li  class="list__item">
-            <button class="button__done js-done">${task.done ? "✔" : "" }</button> 
+            <button class="button__done js-done">${task.done ? "✔" : ""}</button> 
             <span class="list__content${task.done ? " list__item--done" : ""}">${task.content}</span>
             <button class="button__remove js-remove">🗑</button>
            
@@ -52,26 +54,47 @@
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
         bindEvents();
+
     };
 
-   
-
+    /* const removeAllDone = () => {
+         console.log("coś nie działa");
+         
+         if (tasks.includes("done"))
+         {
+             removeTask();
+         };
+ 
+     };
+ 
+ */
 
     const onFormSubmit = (event) => {
 
         event.preventDefault();
 
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
-        
-       
+
+
 
         if (newTaskContent === "") {
             return;
         }
 
         addNewTask(newTaskContent);
-        
 
+
+    };
+
+    const showbuttons = (event, newTaskContent) => {
+        event.preventDefault();
+        const emptytask= document.querySelector(".js-newTask").value.trim();
+        
+        if (emptytask === "") {
+            return;
+        }
+        hidenbutton.style.display = 'inline';
+        
     };
 
     const clear = (event) => {
@@ -79,7 +102,7 @@
         const clearTask = document.querySelector(".js-newTask");
         clearTask.focus();
         clearTask.value = "";
-      
+
     }
 
     const init = () => {
@@ -88,9 +111,12 @@
 
         const form = document.querySelector(".js-form");
 
-        form.addEventListener("submit",onFormSubmit);
-        form.addEventListener("submit",clear);
+        form.addEventListener("submit", onFormSubmit);
+        form.addEventListener("submit", showbuttons);
+        form.addEventListener("submit", clear);
         
+        /* hidenbutton.addEventListener("click", removeAllDone); */
+
     };
 
     init();
