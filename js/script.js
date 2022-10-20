@@ -2,7 +2,7 @@
     const hidenbutton = document.querySelector(".button_deleteAll");
     hidenbutton.style.display = 'none';
 
-    const tasks = [
+    let tasks = [
 
 
     ];
@@ -55,30 +55,22 @@
             `;
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
-
+        if (tasks.length === 0) {
+            hidenbutton.style.display = 'none';
+          };
         bindEvents();
 
     };
 
     const removeAllDone = () => {
-        console.log(tasks);
+      let tasks2 = tasks.filter(task =>!task.done);
+      tasks = tasks2;
+      
+     
+     
 
-
-
-        const allTasks = tasks.length;
-
-        tasks.forEach((task, taskIndex) => {
-            console.log(`${task.done}${task}`);
-            tasks.splice(taskIndex, allTasks);
-
-
-        });
-        render();
-        hidenbutton.style.display = 'none';
-
-
-
-
+      render();
+       
 
     };
 
