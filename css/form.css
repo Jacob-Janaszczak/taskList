@@ -11,7 +11,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     .form {
         width: 300px;
     }
@@ -53,7 +53,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     .form__field {
         max-width: 280px;
         text-align: center;
