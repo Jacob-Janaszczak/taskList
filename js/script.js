@@ -1,25 +1,31 @@
 {
-    const hidenbutton = document.querySelector(".button_deleteAll");
-    hidenbutton.style.display = 'none';
+    const deleteAllButton = document.querySelector(".button_deleteAll");
+    deleteAllButton.style.display = 'none';
+    let hideShowTasks = false;
 
-    let tasks = [
-
-
-    ];
+    let tasks = [];
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
+        if (newTaskContent === "") {
+            return;
+        }
+        tasks = [...tasks, { content: newTaskContent }];
         render();
     };
-    const removeTask = (taskIndex) => {
-        tasks.splice(taskIndex, 1);
+    const removeTask = (removeIndex) => {
+        tasks = [...tasks.slice(0, removeIndex), ...tasks.slice(removeIndex + 1)];
         render();
     };
 
-    const toggleTaskDone = (taskIndex) => {
-        tasks[taskIndex].done = !tasks[taskIndex].done;
+    const toggleTaskDone = (toggleIndex) => {
+        tasks = [
+            ...tasks.slice(0, toggleIndex),
+            {
+                ...tasks[toggleIndex],
+                done: !tasks[toggleIndex].done,
+            },
+            ...tasks.slice(toggleIndex + 1),
+        ];
         render();
     };
 
@@ -41,7 +47,7 @@
         });
     }
 
-    const render = () => {
+    const renderTasks = () => {
         let htmlString = "";
 
         for (const task of tasks) {
@@ -56,55 +62,58 @@
         }
         document.querySelector(".js-tasks").innerHTML = htmlString;
         if (tasks.length === 0) {
-            hidenbutton.style.display = 'none';
-          };
+            deleteAllButton.style.display = 'none';
+        };
+
+    };
+
+
+
+
+   const renderButtons = () => {
+    let newButtons = "";
+   
+    newButtons += tasks.length === 0 ? "" :
+     `<button class="hiddenButton1" ${tasks.every(({done}) => done) ? "disabled": ""} >Ukończ wszystkie</button>
+      <button class="hiddenButton2" ${tasks.every(({done}) => !done) ? "disabled": ""}>Ukryj ukończone</button>`;
+    
+      newButtons = document.querySelector(".js-hiddenButtons").innerHTML = newButtons;
+    
+
+};
+
+
+    const render = () => {
+        renderTasks();
         bindEvents();
+        renderButtons();
+
 
     };
 
     const removeAllDone = () => {
-      let tasks2 = tasks.filter(task =>!task.done);
-      tasks = tasks2;
-      
-     
-     
+        const tasks2 = tasks.filter(task => !task.done);
+        tasks = tasks2;
+        render();
 
-      render();
-       
 
     };
 
 
     const onFormSubmit = (event) => {
-
         event.preventDefault();
-
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
-
-
-
         if (newTaskContent === "") {
+            clear();
             return;
         }
-
         addNewTask(newTaskContent);
-
-
+        deleteAllButton.style.display = 'inline';
+        clear();
     };
 
-    const showbuttons = (event, newTaskContent) => {
-        event.preventDefault();
-        const emptytask = document.querySelector(".js-newTask").value.trim();
 
-        if (emptytask === "") {
-            return;
-        }
-        hidenbutton.style.display = 'inline';
-
-    };
-
-    const clear = (event) => {
-        event.preventDefault();
+    const clear = () => {
         const clearTask = document.querySelector(".js-newTask");
         clearTask.focus();
         clearTask.value = "";
@@ -118,10 +127,7 @@
         const form = document.querySelector(".js-form");
 
         form.addEventListener("submit", onFormSubmit);
-        form.addEventListener("submit", showbuttons);
-        form.addEventListener("submit", clear);
-
-        hidenbutton.addEventListener("click", removeAllDone);
+        deleteAllButton.addEventListener("click", removeAllDone);
 
     };
 

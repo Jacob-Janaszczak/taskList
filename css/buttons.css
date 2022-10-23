@@ -39,20 +39,21 @@
 
 .button__remove {
     padding: 3px;
-    background-color: rgb(248, 16, 16);
+    background-color: rgba(248, 16, 16, 0.726);
     font-size: 15px;
     font-weight: 900;
     color: white;
     border: 0;
     height: 30px;
     width: 50px;
-    transition: transform 1s;
+    transition: transform 0.5s;
     cursor: pointer;
 }
 
 .button__remove:hover {
    /* transform: scale(1.1); */
-    transform: rotate(45deg);
+    transform: rotate(10deg);
+    background-color: rgb(248, 16, 16);
 }
 
 .button__remove:active {
@@ -77,6 +78,7 @@
 
 .button__done:hover {
     transform: scale(1.1);
+    background-color: rgb(27, 209, 88);
 }
 
 .button__done:active {
@@ -85,13 +87,13 @@
 
 .button_deleteAll {
     padding: 3px;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     justify-self: center;
-    background-color: rgb(248, 16, 16);
+    background-color: rgba(248, 16, 16, 0.726);
     box-shadow: 1px 5px 15px -2px;
     font-size: 15px;
     font-weight: 900;
-    color: white;
+    color:  white;
     border: 0;
     height: 30px;
     width: 700px;
@@ -100,6 +102,7 @@
 
 .button_deleteAll:hover {
     transform: scale(1.02);
+    background-color: rgb(248, 16, 16);
 }
 
 .button_deleteAll:active {
@@ -117,4 +120,57 @@
     .button_deleteAll {
         width: 300px;
     }
+}
+
+.hiddenButton1{
+    justify-self: center;
+    padding: 3px;
+    margin-bottom: 5px;
+    justify-self: center;
+    background-color: rgba(23, 221, 162, 0.637);
+    box-shadow: 1px 5px 15px -2px;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    border: 0;
+    height: 30px;
+    width: 700px;
+    cursor: pointer;
+}
+
+.hiddenButton1:disabled {
+    background-color: rgba(160, 158, 158, 0.479);
+}
+.hiddenButton1:disabled:hover {
+    background-color: rgba(160, 158, 158, 0.384);
+}
+
+.hiddenButton2{
+    justify-self: center;
+    padding: 3px;
+    margin-bottom: 50px;
+    justify-self: center;
+    background-color: rgba(23, 221, 162, 0.637);
+    box-shadow: 1px 5px 15px -2px;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+    border: 0;
+    height: 30px;
+    width: 700px;
+    cursor: pointer;
+}
+
+.hiddenButton2:disabled {
+    background-color: rgba(160, 158, 158, 0.479);
+}
+.hiddenButton2:disabled:hover {
+    background-color: rgba(160, 158, 158, 0.384);
+}
+
+
+
+
+.hiddenButton--hidden {
+    display: none;
 }
